@@ -1,0 +1,36 @@
+{
+  "name": "node-express-mongo",
+  "version": "1.0.0",
+  "description": "node.js + express + mongodb",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.1",
+    "mongoose": "^4.12.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-env": "^2.4.1",
+    "babel-loader": "^7.1.2",
+    "nodemon": "^1.12.1",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.6.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "build:watch": "webpack -w",
+    "clean": "rimraf build",
+    "server": "nodemon ./build/server.js",
+    "start": "npm run build && npm run server",
+    "start:watch": "npm run build:watch && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slawomirjopek/node-express-mongo.git"
+  },
+  "author": "Sławomir Jopek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slawomirjopek/node-express-mongo/issues"
+  },
+  "homepage": "https://github.com/slawomirjopek/node-express-mongo#readme"
+}
