@@ -1,3 +1,4 @@
+var nodeExternals = require("webpack-node-externals");
 var path = require("path");
 
 module.exports = {
@@ -5,5 +6,15 @@ module.exports = {
     output: {
         filename: "server.js",
         path: path.join(__dirname, "build")
-    }
+    },
+    target: "node",
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loader: "babel-loader"
+            }
+        ]
+    },
+    externals: nodeExternals()
 };

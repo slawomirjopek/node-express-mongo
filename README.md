@@ -26,7 +26,7 @@ npm run start:watch
 ```
 Windows watching issues fix<br>run both commands
 ```
-npm start build:watch
+npm run build:watch
 npm run server
 ```
 
