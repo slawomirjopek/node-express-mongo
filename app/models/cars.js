@@ -9,4 +9,4 @@ const carsSchema = mongoose.Schema({
     used: Boolean
 });
 
-export default carsSchema;
+export default mongoose.model("Cars", carsSchema);
