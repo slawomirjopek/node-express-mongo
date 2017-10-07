@@ -11,6 +11,7 @@
     "babel-core": "^6.26.0",
     "babel-env": "^2.4.1",
     "babel-loader": "^7.1.2",
+    "glob": "^7.1.2",
     "nodemon": "^1.12.1",
     "rimraf": "^2.6.2",
     "webpack": "^3.6.0",
