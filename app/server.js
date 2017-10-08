@@ -11,33 +11,16 @@ app.use(bodyParser.json());
 
 app.post("/cars", (req, res) => {
     const car = req.body;
-
-    cars.create(car, (err, data) => {
-        if (err) {
-            throw err;
-        }
-        res.json(data);
-    })
+    cars.create(car, responseHandler.bind(res));
 });
 
 app.get("/cars", (req, res) => {
-    cars.find((err, data) => {
-        if (err) {
-            throw err;
-        }
-        res.json(data);
-    });
+    cars.find(responseHandler.bind(res));
 });
 
 app.delete("/cars/:id", (req, res) => {
     const query = {_id: req.params.id};
-
-    cars.remove(query, (err, data) => {
-        if (err) {
-            throw err;
-        }
-        res.json(data);
-    });
+    cars.remove(query, responseHandler.bind(res));
 });
 
 app.put("/cars/:id", (req, res) => {
@@ -48,16 +31,15 @@ app.put("/cars/:id", (req, res) => {
     const options = {
         new: false
     };
-
-    cars.findOneAndUpdate(query, update, options, (err, data) => {
-        if (err) {
-            throw err;
-        }
-        res.json(data);
-    });
+    cars.findOneAndUpdate(query, update, options, responseHandler.bind(res));
 });
 
 const port = process.env.PORT || CONFIG.express.port;
 app.listen(port, () => {
     console.log(`API server running on ${port} port.`);
 });
+
+function responseHandler(err, data) {
+    if (err) throw err;
+    this.json(data);
+}
