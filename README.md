@@ -2,8 +2,6 @@
 
 Application for training purposes 
 
-<b>Currently in development!!!</b>
-
 # Build & Run Instructions
 1. Install
 ```

@@ -40,7 +40,22 @@ app.delete("/cars/:id", (req, res) => {
     });
 });
 
-// @TODO app.put
+app.put("/cars/:id", (req, res) => {
+    const query = {_id: req.params.id};
+    const update = {
+        "$set": {...req.body}
+    };
+    const options = {
+        new: false
+    };
+
+    cars.findOneAndUpdate(query, update, options, (err, data) => {
+        if (err) {
+            throw err;
+        }
+        res.json(data);
+    });
+});
 
 const port = process.env.PORT || CONFIG.express.port;
 app.listen(port, () => {
